@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Quiz Portal</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Student Quiz Portal</h1>
+      <p>Login or sign up, choose your university, course, and level, then take a quiz.</p>
+    </header>
+
+    <main>
+      <section id="auth-section" class="panel">
+        <div id="auth-tabs">
+          <button id="login-tab" class="tab active">Login</button>
+          <button id="signup-tab" class="tab">Sign Up</button>
+        </div>
+
+        <form id="login-form" class="form active">
+          <label>Email</label>
+          <input type="email" id="login-email" placeholder="example@domain.com" required />
+          <label>Password</label>
+          <input type="password" id="login-password" placeholder="Password" required />
+          <button type="submit" class="primary">Log In</button>
+          <p class="info">Don't have an account? <button type="button" id="switch-to-signup" class="link-btn">Sign up</button></p>
+        </form>
+
+        <form id="signup-form" class="form">
+          <label>Full Name</label>
+          <input type="text" id="signup-name" placeholder="Your name" required />
+          <label>Email</label>
+          <input type="email" id="signup-email" placeholder="example@domain.com" required />
+          <label>Password</label>
+          <input type="password" id="signup-password" placeholder="Password" required />
+          <button type="submit" class="primary">Create Account</button>
+          <p class="info">Already have an account? <button type="button" id="switch-to-login" class="link-btn">Log in</button></p>
+        </form>
+      </section>
+
+      <section id="profile-section" class="panel hidden">
+        <h2>Welcome, <span id="user-name"></span></h2>
+        <form id="profile-form" class="form">
+          <label>University</label>
+          <input type="text" id="university" placeholder="Your university" required />
+          <label>Course of Study</label>
+          <input type="text" id="course" placeholder="Your course" required />
+          <label>Level</label>
+          <select id="level" required>
+            <option value="">Select level</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+          </select>
+          <button type="submit" class="primary">Continue</button>
+        </form>
+      </section>
+
+      <section id="courses-section" class="panel hidden">
+        <h2>Available Courses</h2>
+        <div id="courses-list" class="card-grid"></div>
+      </section>
+
+      <section id="quiz-section" class="panel hidden">
+        <h2 id="quiz-title">Quiz</h2>
+        <div id="quiz-card" class="card"></div>
+      </section>
+
+      <section id="results-section" class="panel hidden">
+        <h2>Quiz Results</h2>
+        <div id="result-summary" class="card"></div>
+        <button id="restart-btn" class="primary">Choose Another Course</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
