@@ -65,6 +65,7 @@ function showProfileStep() {
   }
 
   userNameSpan.textContent = user.name;
+  profileForm.classList.add('active');
   showSection(profileSection);
 }
 

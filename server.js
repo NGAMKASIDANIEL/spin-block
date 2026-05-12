@@ -170,7 +170,7 @@ app.post('/api/profile', (req, res) => {
 });
 
 app.get('/api/courses', (req, res) => {
-  const courses = sampleCourses.map(({ id, title, description }) => ({ id, title, description }));
+  const courses = sampleCourses.map(({ id, title, description, questions }) => ({ id, title, description, questions }));
   res.json({ courses });
 });
 

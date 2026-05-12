@@ -1,12 +1,12 @@
 :root {
-  --bg: #f2f7ff;
-  --surface: #ffffff;
-  --text: #1f2937;
-  --muted: #6b7280;
-  --primary: #2563eb;
-  --primary-strong: #1e40af;
-  --danger: #dc2626;
-  --border: #d1d5db;
+  --bg: #e0f2fe;
+  --surface: #f0f9ff;
+  --text: #0c2d44;
+  --muted: #4a7c99;
+  --primary: #0284c7;
+  --primary-strong: #0369a1;
+  --danger: #e74c3c;
+  --border: #7dd3fc;
 }
 
 * {
@@ -15,8 +15,8 @@
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: linear-gradient(180deg, #edf2ff 0%, #e7f0ff 100%);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(180deg, #cffafe 0%, #a5f3fc 100%);
   color: var(--text);
 }
 
@@ -42,11 +42,11 @@ header p {
 }
 
 .panel {
-  background: var(--surface);
-  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f7ff 100%);
+  border: 2px solid var(--border);
   border-radius: 20px;
-  padding: 28px;
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  padding: 32px;
+  box-shadow: 0 20px 50px rgba(2, 132, 199, 0.1);
 }
 
 .hidden {
@@ -70,15 +70,18 @@ button.primary {
 .tab {
   flex: 1;
   padding: 12px 16px;
-  background: #f8fbff;
+  background: #e0f7ff;
   border-radius: 14px;
   color: var(--muted);
-  transition: background .25s ease, color .25s ease;
+  transition: all .25s ease;
+  border: 2px solid transparent;
+  font-weight: 500;
 }
 
 .tab.active {
   background: var(--primary);
   color: white;
+  border: 2px solid var(--primary);
 }
 
 .form {
@@ -101,10 +104,18 @@ input,
 select {
   width: 100%;
   padding: 12px 14px;
-  border: 1px solid var(--border);
+  border: 2px solid rgba(0, 168, 204, 0.2);
   border-radius: 14px;
-  background: #f9fbff;
+  background: #fafcfd;
   color: var(--text);
+  transition: border-color .2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background: #fefeff;
 }
 
 button.primary {
@@ -113,16 +124,22 @@ button.primary {
   justify-content: center;
   margin-top: 24px;
   padding: 14px 20px;
-  background: var(--primary);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-strong) 100%);
   color: white;
   border-radius: 14px;
   width: 100%;
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: all .3s ease;
+  font-weight: 600;
+  border: none;
 }
 
 button.primary:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 20px 30px rgba(37, 99, 235, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.25);
+}
+
+button.primary:active {
+  transform: translateY(0px);
 }
 
 .link-btn {
@@ -144,11 +161,17 @@ button.primary:hover {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
-.card {
-  border-radius: 20px;
-  background: #f8fbff;
+.card {18px;
+  background: linear-gradient(135deg, #f8fbfd 0%, #eff6fa 100%);
   padding: 24px;
-  border: 1px solid rgba(99, 102, 241, 0.12);
+  border: 2px solid var(--border);
+  transition: all .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(2, 132, 199, 0.12
+  border: 1px solid var(--border);
 }
 
 .course-card {
@@ -182,10 +205,22 @@ button.primary:hover {
   display: block;
   margin-bottom: 10px;
   padding: 14px 14px;
-  border: 1px solid var(--border);
+  border: 2px solid rgba(0, 168, 204, 0.2);
   border-radius: 14px;
-  background: white;
+  background: #fafcfd;
   cursor: pointer;
+  transition: all .2s ease;
+}
+
+.options label:hover {
+  background: #f0f8ff;
+  border-color: var(--primary);
+}
+
+.options input:checked + label,
+.options label:has(input:checked) {
+  background: rgba(0, 168, 204, 0.1);
+  border-color: var(--primary);
 }
 
 .options input {

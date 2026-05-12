@@ -1,1 +1,13 @@
-{}
+{
+  "danielngamkasi@gmail.com": {
+    "name": "Daniel",
+    "password": "central"
+  },
+  "danieltest@test.com": {
+    "name": "Daniel",
+    "password": "password123",
+    "university": "University of Lagos",
+    "course": "Computer Science",
+    "level": "100"
+  }
+}
