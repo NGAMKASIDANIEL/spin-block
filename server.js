@@ -214,10 +214,18 @@ app.post('/api/profile', (req, res) => {
   }
 
   const users = loadData(usersFile);
-  const user = Object.values(users).find(u => u.email === email.trim().toLowerCase());
+  const normalizedEmail = email.trim().toLowerCase();
+  const user = users[normalizedEmail];
 
   if (!user) {
     return sendError(res, 'User not found.', 404);
+  }
+
+  // Ensure user has an id, fallback to generating one if missing
+  if (!user.id) {
+    user.id = crypto.randomUUID();
+    user.email = normalizedEmail; // Add missing email field back into DB
+    saveData(usersFile, users);
   }
 
   const profiles = loadData(profilesFile);
