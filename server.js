@@ -188,8 +188,8 @@ app.post('/api/login', (req, res) => {
 
   res.json({
     user: {
-      id: user.id,
-      email: user.email,
+      id: user.id || crypto.randomUUID(),
+      email: user.email || normalizedEmail,
       name: user.name,
       university: profile.university || '',
       department: profile.department || '',
