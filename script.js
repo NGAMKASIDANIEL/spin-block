@@ -128,6 +128,13 @@ function showSection(sectionName) {
     renderDashboard();
   } else if (sectionName === 'semester') {
     renderSemesters();
+  } else if (sectionName === 'profile') {
+    // Make profile form visible
+    const profileForm = document.getElementById('profile-form');
+    if (profileForm) {
+      document.querySelectorAll('.form').forEach(form => form.classList.remove('active'));
+      profileForm.classList.add('active');
+    }
   }
 }
 
@@ -236,8 +243,11 @@ async function renderDashboard() {
   if (!currentUser) return;
 
   // Update user info in sidebar
-  document.getElementById('user-name').textContent = currentUser.name;
-  document.getElementById('user-level').textContent = `${currentUser.level} Level`;
+  const userNameEl = document.getElementById('sidebar-user-name');
+  const userLevelEl = document.getElementById('sidebar-user-level');
+  
+  if (userNameEl) userNameEl.textContent = currentUser.name;
+  if (userLevelEl) userLevelEl.textContent = `${currentUser.level} Level`;
 
   // Render stats
   await renderStats();
