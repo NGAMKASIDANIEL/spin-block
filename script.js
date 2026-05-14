@@ -528,3 +528,5 @@ function logout() {
   localStorage.removeItem('currentUser');
   showSection('landing');
 }
+
+document.addEventListener('DOMContentLoaded', init);
