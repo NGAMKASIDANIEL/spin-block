@@ -16,6 +16,11 @@ const quizCard = document.getElementById('quiz-card');
 const quizTitle = document.getElementById('quiz-title');
 const resultSummary = document.getElementById('result-summary');
 const restartBtn = document.getElementById('restart-btn');
+const navBar = document.getElementById('nav-bar');
+const navHome = document.getElementById('nav-home');
+const navCourses = document.getElementById('nav-courses');
+const navProfile = document.getElementById('nav-profile');
+const signOutBtn = document.getElementById('sign-out-btn');
 
 const currentUserKey = 'student-quiz-current-user';
 let availableCourses = [];
@@ -38,6 +43,13 @@ function showSection(section) {
     panel.classList.add('hidden');
   });
   section.classList.remove('hidden');
+
+  // Show/hide navigation bar
+  if (section === authSection) {
+    navBar.classList.add('hidden');
+  } else {
+    navBar.classList.remove('hidden');
+  }
 }
 
 function setActiveTab(tab) {
@@ -66,6 +78,12 @@ function showProfileStep() {
 
   userNameSpan.textContent = user.name;
   profileForm.classList.add('active');
+
+  // Populate form fields with current values
+  document.getElementById('university').value = user.university || '';
+  document.getElementById('course').value = user.course || '';
+  document.getElementById('level').value = user.level || '';
+
   showSection(profileSection);
 }
 
@@ -310,6 +328,37 @@ coursesList.addEventListener('click', (event) => {
 });
 restartBtn.addEventListener('click', () => {
   showCourses();
+});
+
+// Navigation event listeners
+navHome.addEventListener('click', () => {
+  const user = getCurrentUser();
+  if (user && user.university && user.course && user.level) {
+    showCourses();
+  } else if (user) {
+    showProfileStep();
+  } else {
+    showSection(authSection);
+  }
+});
+
+navCourses.addEventListener('click', () => {
+  const user = getCurrentUser();
+  if (user && user.university && user.course && user.level) {
+    showCourses();
+  } else {
+    alert('Please complete your profile first.');
+    showProfileStep();
+  }
+});
+
+navProfile.addEventListener('click', () => {
+  showProfileStep();
+});
+
+signOutBtn.addEventListener('click', () => {
+  clearCurrentUser();
+  showSection(authSection);
 });
 
 init();
