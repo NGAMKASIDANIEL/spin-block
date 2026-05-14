@@ -73,28 +73,99 @@
           <h2>Complete Your Academic Profile</h2>
           <form id="profile-form" class="form">
             <label>University</label>
-            <select id="university" required>
-              <option value="">Select your university</option>
-              <option value="University of Lagos">University of Lagos</option>
-              <option value="University of Ibadan">University of Ibadan</option>
-              <option value="Obafemi Awolowo University">Obafemi Awolowo University</option>
-              <option value="University of Nigeria">University of Nigeria</option>
-              <option value="Ahmadu Bello University">Ahmadu Bello University</option>
-            </select>
+            <input type="text" id="university" placeholder="Type or select your university" list="universities-list" required>
+            <datalist id="universities-list">
+              <option value="University of Lagos"></option>
+              <option value="University of Ibadan"></option>
+              <option value="Obafemi Awolowo University"></option>
+              <option value="University of Nigeria"></option>
+              <option value="Ahmadu Bello University"></option>
+              <option value="Babcock University"></option>
+              <option value="Covenant University"></option>
+              <option value="Lagos State University"></option>
+              <option value="Redeemers University"></option>
+              <option value="Pan-Atlantic University"></option>
+              <option value="Fountain University"></option>
+              <option value="Joseph Ade Ajayi University"></option>
+              <option value="Federal University of Technology, Akure"></option>
+              <option value="Federal University of Technology, Minna"></option>
+              <option value="Ladoke Akintola University of Technology"></option>
+              <option value="University of Calabar"></option>
+              <option value="University of Benin"></option>
+              <option value="University of Ilorin"></option>
+              <option value="Nnamdi Azikiwe University"></option>
+              <option value="Afe Babalola University"></option>
+              <option value="Bowen University"></option>
+              <option value="Bells University of Technology"></option>
+              <option value="American University of Nigeria"></option>
+              <option value="Baze University"></option>
+              <option value="Nile University of Nigeria"></option>
+            </datalist>
+            
             <label>Department</label>
-            <select id="department" required>
-              <option value="">Select your department</option>
-              <option value="Computer Science">Computer Science</option>
-              <option value="Electrical Engineering">Electrical Engineering</option>
-              <option value="Mechanical Engineering">Mechanical Engineering</option>
-              <option value="Civil Engineering">Civil Engineering</option>
-              <option value="Business Administration">Business Administration</option>
-              <option value="Accounting">Accounting</option>
-              <option value="Economics">Economics</option>
-              <option value="Mathematics">Mathematics</option>
-              <option value="Physics">Physics</option>
-              <option value="Chemistry">Chemistry</option>
-            </select>
+            <input type="text" id="department" placeholder="Type or select your department" list="departments-list" required>
+            <datalist id="departments-list">
+              <option value="Computer Science"></option>
+              <option value="Software Engineering"></option>
+              <option value="Information Technology"></option>
+              <option value="Electrical Engineering"></option>
+              <option value="Mechanical Engineering"></option>
+              <option value="Civil Engineering"></option>
+              <option value="Medicine and Surgery (MBBS)"></option>
+              <option value="Nursing Science"></option>
+              <option value="Medical Laboratory Science"></option>
+              <option value="Public Health"></option>
+              <option value="Pharmacy"></option>
+              <option value="Business Administration"></option>
+              <option value="Accounting"></option>
+              <option value="Economics"></option>
+              <option value="Law"></option>
+              <option value="Mass Communication"></option>
+              <option value="English"></option>
+              <option value="History"></option>
+              <option value="Mathematics"></option>
+              <option value="Physics"></option>
+              <option value="Chemistry"></option>
+              <option value="Biology"></option>
+              <option value="Biochemistry"></option>
+              <option value="Microbiology"></option>
+              <option value="Agriculture"></option>
+              <option value="Information Resources Management"></option>
+              <option value="International Relations"></option>
+              <option value="Theology"></option>
+            </datalist>
+            
+            <label>Course of Study</label>
+            <input type="text" id="courseOfStudy" placeholder="Type or select your specific course" list="courses-list" required>
+            <datalist id="courses-list">
+              <!-- Health & Allied Sciences -->
+              <option value="Medicine and Surgery (MBBS)"></option>
+              <option value="Nursing Science (B.NSc)"></option>
+              <option value="Medical Laboratory Science (BMLS)"></option>
+              <option value="Public Health"></option>
+              <option value="Anatomy (B.Sc)"></option>
+              <option value="Physiology (B.Sc)"></option>
+              <option value="Nutrition and Dietetics"></option>
+              <!-- Science & Technology -->
+              <option value="Computer Science"></option>
+              <option value="Software Engineering"></option>
+              <option value="Information Technology"></option>
+              <option value="Biochemistry"></option>
+              <option value="Microbiology"></option>
+              <option value="Agriculture"></option>
+              <!-- Management & Social Sciences -->
+              <option value="Accounting"></option>
+              <option value="Business Administration"></option>
+              <option value="Law"></option>
+              <option value="Mass Communication"></option>
+              <option value="Information Resources Management"></option>
+              <!-- Education & Humanities -->
+              <option value="English"></option>
+              <option value="History"></option>
+              <option value="International Relations"></option>
+              <option value="Theology"></option>
+            </datalist>
+            
             <label>Level</label>
             <select id="level" required>
               <option value="">Select your level</option>
