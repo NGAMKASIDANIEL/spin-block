@@ -1,0 +1,43 @@
+[
+  {
+    "id": "5ec8bbbc-20bd-4ba9-9043-b60b6df941c6",
+    "courseId": "csc101",
+    "answers": {},
+    "results": [
+      {
+        "question": "What is an algorithm?",
+        "selected": null,
+        "correct": "A step-by-step procedure to solve a problem",
+        "isCorrect": false
+      },
+      {
+        "question": "Which of the following is a high-level programming language?",
+        "selected": null,
+        "correct": "Python",
+        "isCorrect": false
+      },
+      {
+        "question": "What does CPU stand for?",
+        "selected": null,
+        "correct": "Central Processing Unit",
+        "isCorrect": false
+      },
+      {
+        "question": "What is the time complexity of binary search?",
+        "selected": null,
+        "correct": "O(log n)",
+        "isCorrect": false
+      },
+      {
+        "question": "Which data structure follows LIFO principle?",
+        "selected": null,
+        "correct": "Stack",
+        "isCorrect": false
+      }
+    ],
+    "correctCount": 0,
+    "total": 5,
+    "timeSpent": 1801,
+    "submittedAt": "2026-05-14T22:07:47.751Z"
+  }
+]

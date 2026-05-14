@@ -69,6 +69,12 @@ function setupEventListeners() {
   switchToSignup.addEventListener('click', () => showAuthForm('signup'));
   switchToLogin.addEventListener('click', () => showAuthForm('login'));
 
+  // Global logout
+  const globalLogoutBtn = document.getElementById('global-logout');
+  if (globalLogoutBtn) {
+    globalLogoutBtn.addEventListener('click', logout);
+  }
+
   // Auth forms
   loginForm.addEventListener('submit', handleLogin);
   signupForm.addEventListener('submit', handleSignup);
@@ -177,8 +183,9 @@ async function handleLogin(event) {
 
     currentUser = data.user;
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    updateGlobalLogout();
 
-    if (currentUser.university && currentUser.course && currentUser.level) {
+    if (currentUser.university && currentUser.courseOfStudy && currentUser.level) {
       showSection('dashboard');
     } else {
       showSection('profile');
@@ -207,6 +214,7 @@ async function handleSignup(event) {
 
     currentUser = data.user;
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    updateGlobalLogout();
     showSection('profile');
   } catch (error) {
     alert(error.message);
@@ -218,13 +226,14 @@ async function handleProfileSubmit(event) {
 
   const university = document.getElementById('university').value.trim();
   const department = document.getElementById('department').value.trim();
+  const courseOfStudy = document.getElementById('courseOfStudy').value.trim();
   const level = document.getElementById('level').value;
 
   try {
     const response = await fetch('/api/profile', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: currentUser.email, university, department, level })
+      body: JSON.stringify({ email: currentUser.email, university, department, courseOfStudy, level })
     });
 
     const data = await response.json();
@@ -232,6 +241,7 @@ async function handleProfileSubmit(event) {
 
     currentUser = data.user;
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
+    updateGlobalLogout();
     showSection('dashboard');
   } catch (error) {
     alert(error.message);
@@ -524,19 +534,26 @@ function showResults(result) {
 
 // Utility functions
 async function loadUserSession() {
-  const userData = localStorage.getItem('currentUser');
-  if (userData) {
-    currentUser = JSON.parse(userData);
-    currentSection = currentUser.university ? 'dashboard' : 'profile';
-  } else {
-    currentSection = 'landing';
-  }
+  // Always start with landing page
+  currentSection = 'landing';
+  // Enforce manual login as requested: clear old session to relogin
+  currentUser = null;
+  localStorage.removeItem('currentUser');
+  updateGlobalLogout();
 }
 
 function logout() {
   currentUser = null;
   localStorage.removeItem('currentUser');
+  updateGlobalLogout();
   showSection('landing');
+}
+
+function updateGlobalLogout() {
+  const globalLogoutBtn = document.getElementById('global-logout');
+  if (globalLogoutBtn) {
+    globalLogoutBtn.style.display = currentUser ? 'block' : 'none';
+  }
 }
 
 document.addEventListener('DOMContentLoaded', init);

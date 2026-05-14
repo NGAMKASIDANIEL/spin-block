@@ -193,6 +193,7 @@ app.post('/api/login', (req, res) => {
       name: user.name,
       university: profile.university || '',
       department: profile.department || '',
+      courseOfStudy: profile.courseOfStudy || '',
       level: profile.level || ''
     }
   });
@@ -200,8 +201,8 @@ app.post('/api/login', (req, res) => {
 
 // Profile routes
 app.post('/api/profile', (req, res) => {
-  const { email, university, department, level } = req.body;
-  if (!email || !university || !department || !level) {
+  const { email, university, department, courseOfStudy, level } = req.body;
+  if (!email || !university || !department || !courseOfStudy || !level) {
     return sendError(res, 'All profile fields are required.');
   }
 
@@ -216,6 +217,7 @@ app.post('/api/profile', (req, res) => {
   profiles[user.id] = {
     university: university.trim(),
     department: department.trim(),
+    courseOfStudy: courseOfStudy.trim(),
     level: level.toString(),
     updatedAt: new Date().toISOString()
   };
@@ -228,6 +230,7 @@ app.post('/api/profile', (req, res) => {
       name: user.name,
       university: university.trim(),
       department: department.trim(),
+      courseOfStudy: courseOfStudy.trim(),
       level: level.toString()
     }
   });

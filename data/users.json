@@ -9,5 +9,12 @@
     "university": "University of Lagos",
     "course": "Computer Science",
     "level": "100"
+  },
+  "test@university.edu": {
+    "id": "70a7ac12-2f35-4652-892a-8231e6604061",
+    "name": "Test Student",
+    "email": "test@university.edu",
+    "password": "password123",
+    "createdAt": "2026-05-14T21:33:58.910Z"
   }
 }
