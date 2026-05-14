@@ -202,8 +202,15 @@ app.post('/api/login', (req, res) => {
 // Profile routes
 app.post('/api/profile', (req, res) => {
   const { email, university, department, courseOfStudy, level } = req.body;
-  if (!email || !university || !department || !courseOfStudy || !level) {
-    return sendError(res, 'All profile fields are required.');
+  const missing = [];
+  if (!email) missing.push('email');
+  if (!university) missing.push('university');
+  if (!department) missing.push('department');
+  if (!courseOfStudy) missing.push('courseOfStudy');
+  if (!level) missing.push('level');
+  
+  if (missing.length > 0) {
+    return sendError(res, `Missing fields: ${missing.join(', ')}. Please do a hard refresh (Ctrl+Shift+R).`);
   }
 
   const users = loadData(usersFile);
